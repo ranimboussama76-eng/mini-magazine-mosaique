@@ -38,11 +38,17 @@
         </label>
         <ul class="nav-list">
           <li><a href="../index.html" class="nav-link">Accueil</a></li>
-          <li><a href="categorie-ia.html" class="nav-link">IA</a></li>
-          <li><a href="categorie-gadgets.html" class="nav-link is-active" aria-current="page">Gadgets</a></li>
-          <li><a href="categorie-jeux.html" class="nav-link">Jeux vidéo</a></li>
-          <li><a href="categorie-cyber.html" class="nav-link">Cybersécurité</a></li>
-          <li><a href="categorie-dev.html" class="nav-link">Dev web</a></li>
+          <!-- Menu déroulant des rubriques -->
+          <li class="nav-dropdown">
+            <button type="button" class="nav-link dropdown-toggle is-active" aria-haspopup="true">Catégories</button>
+            <ul class="dropdown-menu">
+              <li><a href="categorie-ia.html" class="dropdown-link">IA</a></li>
+              <li><a href="categorie-gadgets.html" class="dropdown-link is-active" aria-current="page">Gadgets</a></li>
+              <li><a href="categorie-jeux.html" class="dropdown-link">Jeux vidéo</a></li>
+              <li><a href="categorie-cyber.html" class="dropdown-link">Cybersécurité</a></li>
+              <li><a href="categorie-dev.html" class="dropdown-link">Dev web</a></li>
+            </ul>
+          </li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>

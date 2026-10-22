@@ -180,6 +180,85 @@ p {
   border-bottom-color: var(--terracotta);
 }
 
+/* Menu déroulant « Catégories » : s'ouvre au survol ou au clavier (sans JavaScript) */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+/* Petite flèche après « Catégories » */
+.dropdown-toggle::after {
+  content: "";
+  display: inline-block;
+  margin-left: 6px;
+  vertical-align: 0.2em;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: -16px;
+  top: 100%;
+  min-width: 190px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background-color: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-top: 2px solid var(--terracotta);
+  box-shadow: var(--ombre);
+  z-index: 10;
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown:hover .dropdown-toggle,
+.nav-dropdown:focus-within .dropdown-toggle {
+  color: var(--terracotta);
+}
+
+.nav-dropdown:hover .dropdown-toggle::after,
+.nav-dropdown:focus-within .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-link {
+  display: block;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.dropdown-link:hover,
+.dropdown-link:focus-visible {
+  color: var(--terracotta);
+  background-color: var(--papier);
+}
+
+.dropdown-link.is-active {
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
 /* Case à cocher cachée : sert à ouvrir le menu mobile sans JavaScript */
 .nav-toggle {
   position: absolute;
@@ -821,7 +900,7 @@ textarea.input {
 
 /* Tablette : 2 colonnes */
 @media (max-width: 1024px) {
-  /* 7 liens : on resserre pour rester sur une ligne */
+  /* On resserre les liens pour rester sur une ligne */
   .nav-list {
     gap: 16px;
   }
@@ -931,6 +1010,38 @@ textarea.input {
     padding: 10px 0;
     border-bottom: none;
     font-size: 1rem;
+  }
+
+  /* Sur mobile, les catégories sont listées directement sous « Catégories » */
+  .dropdown-toggle {
+    width: 100%;
+    text-align: left;
+    cursor: default;
+  }
+
+  .dropdown-toggle::after {
+    display: none;
+  }
+
+  .dropdown-menu {
+    display: block;
+    position: static;
+    min-width: 0;
+    padding: 0 0 4px 16px;
+    border: none;
+    border-left: 2px solid var(--bordure);
+    background: none;
+    box-shadow: none;
+  }
+
+  .dropdown-link {
+    padding: 8px 0;
+    font-size: 0.95rem;
+  }
+
+  .dropdown-link:hover,
+  .dropdown-link:focus-visible {
+    background: none;
   }
 
   /* ...et s'affiche quand la case est cochée (clic sur le burger) */
