@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cybersécurité, Mosaïque</title>
+  <meta name="description" content="Les bons réflexes pour protéger ses comptes, ses données et son téléphone au quotidien.">
+  <!-- Polices Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+  <!-- Feuille de style du site -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#contenu" class="skip-link">Aller au contenu</a>
+
+  <!-- ===== En-tête ===== -->
+  <header class="site-header">
+    <!-- Bandeau du haut : date + slogan -->
+    <div class="top-bar">
+      <div class="container top-bar-inner">
+        <p><time datetime="2026-10-21">Mercredi 21 octobre 2026</time></p>
+        <p>Le magazine des esprits curieux</p>
+      </div>
+    </div>
+    <div class="container header-inner">
+      <a href="../index.html" class="logo" aria-label="Mosaïque, retour à l'accueil">
+        <span class="logo-text">Mosaïque</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <!-- Case cachée + label : menu burger sans JavaScript -->
+        <input type="checkbox" id="menu-toggle" class="nav-toggle">
+        <label for="menu-toggle" class="nav-burger">
+          <span class="burger-lines" aria-hidden="true"></span>
+          <span class="visually-hidden">Ouvrir le menu</span>
+        </label>
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Accueil</a></li>
+          <li><a href="categorie-ia.html" class="nav-link">IA</a></li>
+          <li><a href="categorie-gadgets.html" class="nav-link">Gadgets</a></li>
+          <li><a href="categorie-jeux.html" class="nav-link">Jeux vidéo</a></li>
+          <li><a href="categorie-cyber.html" class="nav-link is-active" aria-current="page">Cybersécurité</a></li>
+          <li><a href="categorie-dev.html" class="nav-link">Dev web</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Contenu principal ===== -->
+  <main id="contenu">
+
+    <!-- Présentation de la rubrique -->
+    <section class="container page-intro" aria-labelledby="titre-rubrique">
+      <span class="tag tag-cyber">2 articles</span>
+      <h1 id="titre-rubrique">Cybersécurité</h1>
+      <p>Les bons réflexes pour protéger ses comptes, ses données et son téléphone au quotidien.</p>
+    </section>
+
+    <!-- Filtres : chaque rubrique a sa propre page (navigation simulée) -->
+    <nav class="container filters" aria-label="Rubriques">
+      <ul class="topic-list">
+          <li><a href="../index.html#articles" class="topic-all">Toutes</a></li>
+          <li><a href="categorie-ia.html" class="tag-ia">IA</a></li>
+          <li><a href="categorie-gadgets.html" class="tag-gadgets">Gadgets</a></li>
+          <li><a href="categorie-jeux.html" class="tag-jeux">Jeux vidéo</a></li>
+          <li><a href="categorie-cyber.html" class="tag-cyber is-active" aria-current="page">Cybersécurité</a></li>
+          <li><a href="categorie-dev.html" class="tag-dev">Dev web</a></li>
+      </ul>
+    </nav>
+
+    <!-- Articles de la rubrique -->
+    <section class="container articles" aria-labelledby="titre-liste">
+      <h2 class="visually-hidden" id="titre-liste">Articles de la rubrique Cybersécurité</h2>
+      <div class="grid">
+        <article class="card">
+          <a href="article-5.html" class="card-link">
+            <div class="card-media">
+              <img src="../images/article-5.png" alt="Cadenas rouge posé sur un clavier d'ordinateur" width="800" height="500">
+            </div>
+            <div class="card-body">
+              <span class="tag tag-cyber">Cybersécurité</span>
+              <h3 class="card-title">Cinq réflexes pour protéger ses comptes en ligne</h3>
+              <p class="card-excerpt">Mots de passe, double authentification, mises à jour : les bases que tout le monde devrait appliquer.</p>
+              <p class="card-meta">Par Yasmine M., 4 min de lecture</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="article-9.html" class="card-link">
+            <div class="card-media">
+              <img src="../images/article-9.png" alt="Icône de l'application de messagerie sur un smartphone" width="800" height="500">
+            </div>
+            <div class="card-body">
+              <span class="tag tag-cyber">Cybersécurité</span>
+              <h3 class="card-title">Phishing : comment reconnaître un faux message</h3>
+              <p class="card-excerpt">Adresse douteuse, urgence inventée, lien piégé : les signes qui doivent vous alerter.</p>
+              <p class="card-meta">Par Yasmine M., 5 min de lecture</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Pied de page ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-about">
+        <a href="../index.html" class="logo">
+          <span class="logo-text">Mosaïque</span>
+        </a>
+        <p>Le magazine qui explique la tech et le numérique simplement, pour les étudiants et les curieux.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Rubriques</h2>
+        <ul class="footer-links">
+          <li><a href="categorie-ia.html">IA</a></li>
+          <li><a href="categorie-gadgets.html">Gadgets</a></li>
+          <li><a href="categorie-jeux.html">Jeux vidéo</a></li>
+          <li><a href="categorie-cyber.html">Cybersécurité</a></li>
+          <li><a href="categorie-dev.html">Dev web</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Le magazine</h2>
+        <ul class="footer-links">
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Mosaïque. Mini projet web FIA3, ISSAT Sousse, réalisé par Ranim Boussama et Yasmine Mtawaa.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

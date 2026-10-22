@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mosaïque, le magazine tech et numérique</title>
+  <meta name="description" content="Mosaïque, mini magazine en ligne sur la tech, l'IA, les gadgets, les jeux vidéo et la cybersécurité.">
+  <!-- Polices Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+  <!-- Feuille de style du site -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="#contenu" class="skip-link">Aller au contenu</a>
+
+  <!-- ===== En-tête ===== -->
+  <header class="site-header">
+    <!-- Bandeau du haut : date + slogan -->
+    <div class="top-bar">
+      <div class="container top-bar-inner">
+        <p><time datetime="2026-10-21">Mercredi 21 octobre 2026</time></p>
+        <p>Le magazine des esprits curieux</p>
+      </div>
+    </div>
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Mosaïque, retour à l'accueil">
+        <span class="logo-text">Mosaïque</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <!-- Case cachée + label : menu burger sans JavaScript -->
+        <input type="checkbox" id="menu-toggle" class="nav-toggle">
+        <label for="menu-toggle" class="nav-burger">
+          <span class="burger-lines" aria-hidden="true"></span>
+          <span class="visually-hidden">Ouvrir le menu</span>
+        </label>
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link is-active" aria-current="page">Accueil</a></li>
+          <li><a href="pages/categorie-ia.html" class="nav-link">IA</a></li>
+          <li><a href="pages/categorie-gadgets.html" class="nav-link">Gadgets</a></li>
+          <li><a href="pages/categorie-jeux.html" class="nav-link">Jeux vidéo</a></li>
+          <li><a href="pages/categorie-cyber.html" class="nav-link">Cybersécurité</a></li>
+          <li><a href="pages/categorie-dev.html" class="nav-link">Dev web</a></li>
+          <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Contenu principal ===== -->
+  <main id="contenu">
+    <h1 class="visually-hidden">Mosaïque, le magazine tech et numérique</h1>
+
+    <!-- Article à la une -->
+    <section class="container hero" aria-labelledby="titre-une">
+      <a href="pages/article-1.html" class="hero-media">
+        <img src="images/article-1.png" alt="Smartphone qui photographie un écran affichant un visage généré par l'IA" width="800" height="500">
+      </a>
+      <div class="hero-text">
+        <p class="hero-label">À la une</p>
+        <span class="tag tag-ia">IA</span>
+        <h2 class="hero-title" id="titre-une"><a href="pages/article-1.html">L'IA en 2026 : ce qui a vraiment changé dans notre quotidien</a></h2>
+        <p class="hero-lead">Traduction instantanée, photos retouchées, devoirs relus : l'intelligence artificielle s'est installée partout, souvent sans qu'on s'en rende compte.</p>
+        <p class="hero-meta">Par Ranim Boussama, le 21 octobre 2026, 8 min de lecture</p>
+        <a href="pages/article-1.html" class="btn">Lire l'article</a>
+      </div>
+    </section>
+
+    <!-- Rubriques -->
+    <section class="container topics" aria-labelledby="titre-rubriques">
+      <h2 class="topics-title" id="titre-rubriques">Explorer par rubrique</h2>
+      <ul class="topic-list">
+          <li><a href="index.html#articles" class="topic-all is-active">Toutes</a></li>
+          <li><a href="pages/categorie-ia.html" class="tag-ia">IA</a></li>
+          <li><a href="pages/categorie-gadgets.html" class="tag-gadgets">Gadgets</a></li>
+          <li><a href="pages/categorie-jeux.html" class="tag-jeux">Jeux vidéo</a></li>
+          <li><a href="pages/categorie-cyber.html" class="tag-cyber">Cybersécurité</a></li>
+          <li><a href="pages/categorie-dev.html" class="tag-dev">Dev web</a></li>
+      </ul>
+    </section>
+
+    <!-- Grille des 9 derniers articles -->
+    <section class="container articles" id="articles" aria-labelledby="titre-articles">
+      <h2 class="section-title" id="titre-articles">Derniers articles</h2>
+      <div class="grid">
+        <article class="card">
+          <a href="pages/article-2.html" class="card-link">
+            <div class="card-media">
+              <img src="images/article-2.png" alt="Personne en train d'écrire sur un ordinateur portable" width="800" height="500">
+            </div>
+            <div class="card-body">
+              <span class="tag tag-ia">IA</span>
+              <h3 class="card-title">Comment l'IA générative change notre façon d'écrire</h3>
+              <p class="card-excerpt">Des correcteurs aux assistants de rédaction, tour d'horizon des outils qui s'invitent dans nos textes.</p>
+              <p class="card-meta">Par Ranim B., 5 min de lecture</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="pages/article-3.html" class="card-link">
+            <div class="card-media">
+              <img src="images/article-3.png" alt="Casque audio sans fil posé à plat" width="800" height="500">
+            </div>
+            <div class="card-body">
+              <span class="tag tag-gadgets">Gadgets</span>
+              <h3 class="card-title">Écouteurs à réduction de bruit : valent-ils leur prix ?</h3>
+              <p class="card-excerpt">On a comparé trois gammes de prix pour savoir si le haut de gamme fait vraiment la différence.</p>
+              <p class="card-meta">Par Yasmine M., 6 min de lecture</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="pages/article-4.html" class="card-link">
+            <div class="card-media">
+              <img src="images/article-4.png" alt="Poste de jeu avec plusieurs écrans affichant des illustrations de jeux" width="800" height="500">
+            </div>
+            <div class="card-body">
+              <span class="tag tag-jeux">Jeux vidéo</span>
+              <h3 class="card-title">Le grand retour des jeux indépendants</h3>
+              <p class="card-excerpt">Petites équipes, idées originales : les studios indés font de l'ombre aux grosses productions.</p>
+              <p class="card-meta">Par Ranim B., 5 min de lecture</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="pages/article-5.html" class="card-link">
+            <div class="card-media">
+              <img src="images/article-5.png" alt="Cadenas rouge posé sur un clavier d'ordinateur" width="800" height="500">
+            </div>
+            <div class="card-body">
+              <span class="tag tag-cyber">Cybersécurité</span>
+              <h3 class="card-title">Cinq réflexes pour protéger ses comptes en ligne</h3>
+              <p class="card-excerpt">Mots de passe, double authentification, mises à jour : les bases que tout le monde devrait appliquer.</p>
+              <p class="card-meta">Par Yasmine M., 4 min de lecture</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="pages/article-6.html" class="card-link">
+            <div class="card-media">
+              <img src="images/article-6.png" alt="Lignes de code HTML et CSS dans un éditeur" width="800" height="500">
+            </div>
+            <div class="card-body">
+              <span class="tag tag-dev">Dev web</span>
+              <h3 class="card-title">CSS Grid expliqué simplement</h3>
+              <p class="card-excerpt">Lignes, colonnes, espacements : comprendre la mise en page en grille avec des exemples concrets.</p>
+              <p class="card-meta">Par Ranim B., 7 min de lecture</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="pages/article-7.html" class="card-link">
+            <div class="card-media">
+              <img src="images/article-7.png" alt="Enceinte connectée Google Home Mini à côté d'un smartphone" width="800" height="500">
+            </div>
+            <div class="card-body">
+              <span class="tag tag-ia">IA</span>
+              <h3 class="card-title">Les assistants vocaux nous comprennent-ils vraiment ?</h3>
+              <p class="card-excerpt">Accents, bruit de fond, phrases à rallonge : ce que les assistants savent faire, et leurs limites.</p>
+              <p class="card-meta">Par Yasmine M., 5 min de lecture</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="pages/article-8.html" class="card-link">
+            <div class="card-media">
+              <img src="images/article-8.png" alt="Personne portant une montre connectée au poignet" width="800" height="500">
+            </div>
+            <div class="card-body">
+              <span class="tag tag-gadgets">Gadgets</span>
+              <h3 class="card-title">Montres connectées : vraiment utiles au quotidien ?</h3>
+              <p class="card-excerpt">Suivi du sommeil, notifications, sport : on a porté une montre connectée pendant un mois.</p>
+              <p class="card-meta">Par Ranim B., 6 min de lecture</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="pages/article-9.html" class="card-link">
+            <div class="card-media">
+              <img src="images/article-9.png" alt="Icône de l'application de messagerie sur un smartphone" width="800" height="500">
+            </div>
+            <div class="card-body">
+              <span class="tag tag-cyber">Cybersécurité</span>
+              <h3 class="card-title">Phishing : comment reconnaître un faux message</h3>
+              <p class="card-excerpt">Adresse douteuse, urgence inventée, lien piégé : les signes qui doivent vous alerter.</p>
+              <p class="card-meta">Par Yasmine M., 5 min de lecture</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card">
+          <a href="pages/article-10.html" class="card-link">
+            <div class="card-media">
+              <img src="images/article-10.png" alt="Joueur tenant une manette devant un téléviseur" width="800" height="500">
+            </div>
+            <div class="card-body">
+              <span class="tag tag-jeux">Jeux vidéo</span>
+              <h3 class="card-title">Le cloud gaming va-t-il remplacer les consoles ?</h3>
+              <p class="card-excerpt">Jouer sans console, directement en streaming : promesse tenue ou pas encore ?</p>
+              <p class="card-meta">Par Ranim B., 6 min de lecture</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Newsletter (le formulaire sera validé en JavaScript en semaine 2) -->
+    <section class="container newsletter-section" aria-labelledby="titre-newsletter">
+      <div class="newsletter">
+        <div>
+          <h2 id="titre-newsletter">Une lettre par semaine, pas plus</h2>
+          <p>Les meilleurs articles de la semaine, directement dans votre boîte mail.</p>
+        </div>
+        <form class="newsletter-form" method="post">
+          <label for="email-newsletter" class="visually-hidden">Adresse e-mail</label>
+          <input type="email" id="email-newsletter" name="email" class="input" placeholder="vous@exemple.com" required>
+          <button type="submit" class="btn">S'abonner</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Pied de page ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-about">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Mosaïque</span>
+        </a>
+        <p>Le magazine qui explique la tech et le numérique simplement, pour les étudiants et les curieux.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Rubriques</h2>
+        <ul class="footer-links">
+          <li><a href="pages/categorie-ia.html">IA</a></li>
+          <li><a href="pages/categorie-gadgets.html">Gadgets</a></li>
+          <li><a href="pages/categorie-jeux.html">Jeux vidéo</a></li>
+          <li><a href="pages/categorie-cyber.html">Cybersécurité</a></li>
+          <li><a href="pages/categorie-dev.html">Dev web</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Le magazine</h2>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Mosaïque. Mini projet web FIA3, ISSAT Sousse, réalisé par Ranim Boussama et Yasmine Mtawaa.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

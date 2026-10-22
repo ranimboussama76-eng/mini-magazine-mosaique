@@ -1,0 +1,990 @@
+/* =========================================================
+   Mosaïque — magazine en ligne
+   Feuille de style unique (HTML/CSS seulement — semaine 1)
+   Charte graphique : maquettes Figma « Mini magazine en ligne »
+   Polices (Playfair Display + Inter) chargées par <link> dans le <head>
+   ========================================================= */
+
+/* ---------- 1. Variables (charte graphique) ---------- */
+:root {
+  /* Couleurs */
+  --encre: #1A1A1A;        /* titres, texte */
+  --papier: #FAF7F2;       /* fond des pages */
+  --blanc: #FFFFFF;        /* cartes */
+  --terracotta: #C0492B;   /* accent, liens, catégories */
+  --gris: #6B6B6B;         /* texte secondaire */
+  --bordure: #E5E0D8;      /* séparateurs */
+  --terracotta-fonce: #A33C22; /* survol des boutons terracotta */
+
+  /* Typographie */
+  --police-titre: "Playfair Display", Georgia, "Times New Roman", serif;
+  --police-texte: "Inter", "Segoe UI", Arial, sans-serif;
+
+  /* Formes */
+  --rayon: 4px;
+  --ombre: 0 12px 28px rgba(26, 26, 26, 0.12);
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--police-texte);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--encre);
+  background-color: var(--papier);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 { font-size: 3rem; }      /* 48px */
+h2 { font-size: 2rem; }      /* 32px */
+h3 { font-size: 1.375rem; }  /* 22px */
+
+p {
+  margin: 0;
+}
+
+/* Contour visible au clavier (accessibilité) */
+:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 3px;
+}
+
+/* Conteneur centré qui limite la largeur */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Texte lu par les lecteurs d'écran mais caché à l'écran */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Lien "Aller au contenu" : apparaît seulement au clavier */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  padding: 10px 16px;
+  background: var(--encre);
+  color: var(--blanc);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ---------- 3. En-tête et navigation ---------- */
+.site-header {
+  position: relative;
+  background-color: var(--papier);
+  border-bottom: 2px solid var(--encre);
+}
+
+/* Bandeau noir du haut : date à gauche, slogan à droite */
+.top-bar {
+  background-color: var(--encre);
+  color: var(--blanc);
+  font-size: 0.75rem;
+}
+
+.top-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 32px;
+}
+
+.top-bar p:last-child {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: var(--police-titre);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.nav-list {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  font-weight: 500;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--terracotta);
+}
+
+.nav-link.is-active {
+  color: var(--terracotta);
+  border-bottom-color: var(--terracotta);
+}
+
+/* Case à cocher cachée : sert à ouvrir le menu mobile sans JavaScript */
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-burger {
+  display: none; /* visible seulement sur mobile */
+}
+
+/* ---------- 4. Éléments réutilisables ---------- */
+
+/* Étiquette de catégorie : Inter semi-bold, 12px, majuscules, espacement 0.1em */
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+/* Bouton principal */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 2px;
+  background-color: var(--encre);
+  color: var(--blanc);
+  font-family: var(--police-texte);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn::after {
+  content: " →";
+}
+
+.btn:hover {
+  background-color: var(--terracotta);
+}
+
+/* ---------- 5. Accueil : article à la une ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.hero-media {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-media img {
+  width: 100%;
+  transition: transform 0.6s ease;
+}
+
+.hero-media:hover img {
+  transform: scale(1.05);
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* Badge « À la une » */
+.hero-label {
+  padding: 3px 10px;
+  border-radius: 2px;
+  background-color: var(--terracotta);
+  color: var(--blanc);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.hero-title a:hover {
+  color: var(--terracotta);
+}
+
+.hero-lead {
+  color: var(--gris);
+  max-width: 34em;
+}
+
+.hero-meta {
+  font-size: 0.8rem;
+  color: var(--gris);
+}
+
+/* ---------- 6. Liste des rubriques (onglets) ---------- */
+.topics {
+  padding-bottom: 40px;
+}
+
+.topics-title {
+  font-family: var(--police-texte);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-bottom: 12px;
+}
+
+.topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--bordure);
+}
+
+.topic-list a {
+  display: block;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gris);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.topic-list a:hover,
+.topic-list a.is-active {
+  color: var(--terracotta);
+  border-bottom-color: var(--terracotta);
+}
+
+/* ---------- 7. Grille d'articles ---------- */
+.articles {
+  padding-bottom: 72px;
+}
+
+/* Titre de section suivi d'un filet horizontal */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 1.75rem;
+  margin-bottom: 28px;
+}
+
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--encre);
+  opacity: 0.25;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur ordinateur */
+  gap: 28px;
+}
+
+/* Carte blanche avec fine bordure */
+.card {
+  background-color: var(--blanc);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--ombre);
+}
+
+.card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Le cadre cache ce qui dépasse quand l'image grossit */
+.card-media {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Survol : image scale(1.1) + ombre (charte) */
+.card-link:hover .card-media img,
+.card-link:focus-visible .card-media img {
+  transform: scale(1.1);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 18px 20px 20px;
+}
+
+.card-title {
+  font-size: 1.375rem;
+  line-height: 1.25;
+  transition: color 0.2s ease;
+}
+
+.card-link:hover .card-title {
+  color: var(--terracotta);
+}
+
+.card-excerpt {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--gris);
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  color: var(--gris);
+}
+
+/* ---------- 8. Newsletter ---------- */
+.newsletter-section {
+  max-width: none;
+  padding: 0;
+  background-color: var(--blanc);
+  border-top: 1px solid var(--bordure);
+}
+
+.newsletter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 32px;
+}
+
+.newsletter h2 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.newsletter p {
+  font-size: 0.875rem;
+  color: var(--gris);
+}
+
+/* Champ et bouton collés, comme sur la maquette */
+.newsletter-form {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.newsletter-form .input {
+  width: 300px;
+  border-right: none;
+  border-radius: 2px 0 0 2px;
+}
+
+.newsletter-form .btn {
+  border-radius: 0 2px 2px 0;
+  background-color: var(--terracotta);
+}
+
+.newsletter-form .btn::after {
+  content: none;
+}
+
+.newsletter-form .btn:hover {
+  background-color: var(--terracotta-fonce);
+}
+
+/* ---------- 9. Champs de formulaire (newsletter + contact) ---------- */
+.input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #CFC8BC;
+  border-radius: 2px;
+  background-color: var(--papier);
+  color: var(--encre);
+  font-family: var(--police-texte);
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 3px rgba(192, 73, 43, 0.15);
+}
+
+/* ---------- 10. Pied de page ---------- */
+.site-footer {
+  background-color: var(--encre);
+  color: var(--blanc);
+  padding-top: 56px;
+}
+
+.site-footer .logo-text {
+  font-size: 1.5rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 64px;
+  padding-bottom: 48px;
+}
+
+.footer-about p {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 34em;
+}
+
+.footer-title {
+  font-family: var(--police-texte);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 4px;
+}
+
+.footer-links a {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links a:hover {
+  color: var(--blanc);
+}
+
+.footer-bottom {
+  padding-top: 20px;
+  padding-bottom: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- 11. Page rubrique ---------- */
+.page-intro {
+  padding-top: 56px;
+  padding-bottom: 28px;
+}
+
+.page-intro h1 {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin: 10px 0 12px;
+}
+
+.page-intro p {
+  font-size: 1.05rem;
+  color: var(--gris);
+  max-width: 40em;
+}
+
+.filters {
+  padding-bottom: 40px;
+}
+
+/* ---------- 12. Page article ---------- */
+.article-header {
+  max-width: 760px;
+  padding-top: 40px;
+  padding-bottom: 32px;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  font-size: 0.75rem;
+  color: var(--gris);
+}
+
+/* Petit séparateur "›" entre les éléments du fil d'Ariane */
+.breadcrumb li + li::before {
+  content: "›";
+  margin-right: 8px;
+}
+
+.breadcrumb a:hover {
+  color: var(--terracotta);
+}
+
+.article-header h1 {
+  font-size: clamp(2.1rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 10px 0 14px;
+}
+
+.article-lead {
+  font-size: 1.1rem;
+  color: var(--gris);
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.author-avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #D4A483;
+  color: var(--blanc);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.author-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.author-date {
+  font-size: 0.75rem;
+  color: var(--gris);
+}
+
+.article-figure {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.article-figure img {
+  width: 100%;
+}
+
+.article-figure figcaption {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--gris);
+}
+
+.article-body {
+  max-width: 760px;
+  padding-top: 40px;
+  padding-bottom: 64px;
+}
+
+.article-body p + p,
+.article-body h2 + p,
+.article-body blockquote + p,
+.article-body blockquote + h2 {
+  margin-top: 20px;
+}
+
+.article-body h2 {
+  font-size: 1.6rem;
+  margin-top: 36px;
+  margin-bottom: 14px;
+}
+
+/* Citation : Playfair Display italique + filet terracotta */
+.article-body blockquote {
+  margin: 32px 0;
+  padding: 4px 0 4px 24px;
+  border-left: 3px solid var(--terracotta);
+  font-family: var(--police-titre);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 36px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--terracotta);
+}
+
+.back-link::before {
+  content: "← ";
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* « À lire aussi » sur une bande blanche */
+.related {
+  max-width: none;
+  padding-top: 56px;
+  padding-bottom: 80px;
+  background-color: var(--blanc);
+}
+
+.related > * {
+  max-width: 1136px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.related .section-title::after {
+  content: none;
+}
+
+/* ---------- 13. Page contact ---------- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 40px;
+  padding-bottom: 80px;
+}
+
+.contact-info {
+  align-self: start;
+  padding: 32px;
+  border-top: 3px solid var(--terracotta);
+  background-color: var(--blanc);
+  border-radius: var(--rayon);
+}
+
+.contact-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.contact-info > p {
+  color: var(--gris);
+}
+
+.contact-info dl {
+  margin: 0;
+}
+
+.contact-info dt {
+  margin-top: 18px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.contact-info dd {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+}
+
+.contact-info dd a:hover {
+  color: var(--terracotta);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 36px;
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  background-color: var(--blanc);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+textarea.input {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.form-note {
+  font-size: 0.8rem;
+  color: var(--gris);
+}
+
+.contact-form .btn {
+  align-self: flex-start;
+}
+
+/* =========================================================
+   14. Responsive design (media queries)
+   ========================================================= */
+
+/* Tablette : 2 colonnes */
+@media (max-width: 1024px) {
+  /* 7 liens : on resserre pour rester sur une ligne */
+  .nav-list {
+    gap: 16px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .newsletter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile : menu burger */
+@media (max-width: 700px) {
+  /* padding-left/right seulement, pour ne pas écraser les marges haut/bas des sections */
+  .container,
+  .newsletter {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* La bande newsletter a déjà son padding dans .newsletter */
+  .newsletter-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .top-bar {
+    font-size: 0.7rem;
+  }
+
+  .top-bar-inner {
+    min-height: 28px;
+  }
+
+  .header-inner {
+    min-height: 64px;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  /* Icône burger dessinée en CSS (3 traits) */
+  .nav-burger {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+  }
+
+  .burger-lines,
+  .burger-lines::before,
+  .burger-lines::after {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--encre);
+  }
+
+  .burger-lines {
+    position: relative;
+  }
+
+  .burger-lines::before,
+  .burger-lines::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .burger-lines::before { top: -7px; }
+  .burger-lines::after  { top: 7px; }
+
+  .nav-toggle:focus-visible + .nav-burger {
+    outline: 2px solid var(--terracotta);
+  }
+
+  /* Le menu est caché par défaut sur mobile... */
+  .nav-list {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 20px 16px;
+    border-bottom: 2px solid var(--encre);
+    background-color: var(--papier);
+    z-index: 5;
+  }
+
+  .nav-link {
+    padding: 10px 0;
+    border-bottom: none;
+    font-size: 1rem;
+  }
+
+  /* ...et s'affiche quand la case est cochée (clic sur le burger) */
+  .nav-toggle:checked ~ .nav-list {
+    display: flex;
+  }
+
+  .hero {
+    padding-top: 24px;
+  }
+
+  .newsletter {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .newsletter-form {
+    width: 100%;
+  }
+
+  .newsletter-form .input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .footer-about {
+    grid-column: 1 / -1;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form,
+  .contact-info {
+    padding: 24px 20px;
+  }
+}
+
+/* Petit téléphone : 1 colonne */
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Respecte les utilisateurs qui désactivent les animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

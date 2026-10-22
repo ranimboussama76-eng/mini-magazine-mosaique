@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact, Mosaïque</title>
+  <meta name="description" content="Contactez l'équipe de Mosaïque : une question, une idée d'article ou une remarque.">
+  <!-- Polices Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+  <!-- Feuille de style du site -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <a href="#contenu" class="skip-link">Aller au contenu</a>
+
+  <!-- ===== En-tête ===== -->
+  <header class="site-header">
+    <!-- Bandeau du haut : date + slogan -->
+    <div class="top-bar">
+      <div class="container top-bar-inner">
+        <p><time datetime="2026-10-21">Mercredi 21 octobre 2026</time></p>
+        <p>Le magazine des esprits curieux</p>
+      </div>
+    </div>
+    <div class="container header-inner">
+      <a href="../index.html" class="logo" aria-label="Mosaïque, retour à l'accueil">
+        <span class="logo-text">Mosaïque</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <!-- Case cachée + label : menu burger sans JavaScript -->
+        <input type="checkbox" id="menu-toggle" class="nav-toggle">
+        <label for="menu-toggle" class="nav-burger">
+          <span class="burger-lines" aria-hidden="true"></span>
+          <span class="visually-hidden">Ouvrir le menu</span>
+        </label>
+        <ul class="nav-list">
+          <li><a href="../index.html" class="nav-link">Accueil</a></li>
+          <li><a href="categorie-ia.html" class="nav-link">IA</a></li>
+          <li><a href="categorie-gadgets.html" class="nav-link">Gadgets</a></li>
+          <li><a href="categorie-jeux.html" class="nav-link">Jeux vidéo</a></li>
+          <li><a href="categorie-cyber.html" class="nav-link">Cybersécurité</a></li>
+          <li><a href="categorie-dev.html" class="nav-link">Dev web</a></li>
+          <li><a href="contact.html" class="nav-link is-active" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Contenu principal ===== -->
+  <main id="contenu">
+
+    <section class="container page-intro" aria-labelledby="titre-contact">
+      <h1 id="titre-contact">Nous contacter</h1>
+      <p>Une question, une idée d'article ou une remarque sur le magazine ? Écrivez-nous, nous répondons sous 48 heures.</p>
+    </section>
+
+    <div class="container contact-layout">
+
+      <!-- Informations de contact -->
+      <aside class="contact-info" aria-labelledby="titre-infos">
+        <h2 id="titre-infos">L'équipe</h2>
+        <p>Mosaïque est réalisé par deux étudiantes de l'ISSAT Sousse.</p>
+        <dl>
+          <dt>E-mail</dt>
+          <dd><a href="mailto:ranim.boussama76@gmail.com">ranim.boussama76@gmail.com </a></dd>
+          <dd><a href="mailto:yasmine.mtawaa@gmail.com">yasmine.mtawaa@gmail.com </a></dd>
+          <dt>Adresse</dt>
+          <dd>ISSAT Sousse, Cité Taffala, Ibn Khaldoun, 4003 Sousse</dd>
+          <dt>Rédaction</dt>
+          <dd>Ranim Boussama et Yasmine Mtawaa</dd>
+        </dl>
+      </aside>
+
+      <!-- Formulaire (validation JavaScript en semaine 2, traitement PHP en semaine 3) -->
+      <form class="contact-form" method="post">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="nom">Nom complet</label>
+            <input type="text" id="nom" name="nom" class="input" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="email" class="input" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="sujet">Sujet</label>
+          <select id="sujet" name="sujet" class="input" required>
+            <option value="">Choisissez un sujet</option>
+            <option value="question">Une question</option>
+            <option value="idee">Proposer un article</option>
+            <option value="erreur">Signaler une erreur</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" class="input" rows="6" required></textarea>
+        </div>
+
+        <p class="form-note">Tous les champs sont obligatoires.</p>
+        <button type="submit" class="btn">Envoyer le message</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- ===== Pied de page ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-about">
+        <a href="../index.html" class="logo">
+          <span class="logo-text">Mosaïque</span>
+        </a>
+        <p>Le magazine qui explique la tech et le numérique simplement, pour les étudiants et les curieux.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Rubriques</h2>
+        <ul class="footer-links">
+          <li><a href="categorie-ia.html">IA</a></li>
+          <li><a href="categorie-gadgets.html">Gadgets</a></li>
+          <li><a href="categorie-jeux.html">Jeux vidéo</a></li>
+          <li><a href="categorie-cyber.html">Cybersécurité</a></li>
+          <li><a href="categorie-dev.html">Dev web</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Le magazine</h2>
+        <ul class="footer-links">
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Mosaïque. Mini projet web FIA3, ISSAT Sousse, réalisé par Ranim Boussama et Yasmine Mtawaa.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
