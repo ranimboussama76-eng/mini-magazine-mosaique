@@ -2,6 +2,7 @@
 %  Rapport de mini projet Web — Mosaïque (FIA3, ISSAT Sousse)
 %  Compilation : pdflatex rapport.tex (deux fois, pour le sommaire)
 %  ou : latexmk -pdf rapport.tex
+%  Sur Overleaf : mettre images/ et code/ (index.html, style.css) à côté de ce fichier
 % =========================================================
 \documentclass[12pt,a4paper]{article}
 
@@ -90,6 +91,15 @@
   morecomment=[s]{<!--}{-->},
   morestring=[b]",
 }
+
+% Inclut un fichier de code du site : cherche d'abord dans code/ (projet
+% Overleaf), puis dans le dépôt (../). Si le fichier manque, affiche une
+% note au lieu d'arrêter la compilation.
+\newcommand{\codefile}[3]{%
+  \IfFileExists{code/#2}{\lstinputlisting[#1]{code/#2}}{%
+    \IfFileExists{#3}{\lstinputlisting[#1]{#3}}{%
+      \textit{Fichier \texttt{#2} introuvable : ajoutez-le dans le dossier
+      \texttt{code/} du projet.}}}}
 
 % Raccourci pour les noms de code dans le texte
 \newcommand{\code}[1]{\texttt{#1}}
@@ -743,9 +753,9 @@ serveur.
 \end{itemize}
 
 \subsection{Code complet : index.html}
-\lstinputlisting[language=HTML5,basicstyle=\ttfamily\scriptsize]{../index.html}
+\codefile{language=HTML5,basicstyle=\ttfamily\scriptsize}{index.html}{../index.html}
 
 \subsection{Code complet : css/style.css}
-\lstinputlisting[language=CSS,basicstyle=\ttfamily\scriptsize]{../css/style.css}
+\codefile{language=CSS,basicstyle=\ttfamily\scriptsize}{style.css}{../css/style.css}
 
 \end{document}
