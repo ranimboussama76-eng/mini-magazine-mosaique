@@ -678,6 +678,35 @@ une seule colonne.
 \noindent\textbf{Code source :}\\
 \url{https://github.com/ranimboussama76-eng/mini-magazine-mosaique}
 
+\subsection{Validation W3C}
+
+Le sujet impose la validation du code par le W3C. Nous avons vérifié la
+page d'accueil avec le validateur HTML (Nu Html Checker) et la feuille de
+style avec le validateur CSS (CSS niveau 3 + SVG).
+
+\begin{itemize}
+  \item \textbf{HTML} : \code{index.html} ne contient aucune erreur et
+    aucun avertissement (figure~\ref{fig:w3c-html}).
+  \item \textbf{CSS} : \code{style.css} ne contient aucune erreur
+    (figure~\ref{fig:w3c-css}). Le validateur affiche 12 avertissements,
+    qui ne sont pas des erreurs et n'empêchent pas la validation.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{images/validation-html.png}
+  \caption{Validation HTML de \code{index.html} : aucune erreur ni
+    avertissement}
+  \label{fig:w3c-html}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{images/validation-css.png}
+  \caption{Validation CSS de \code{style.css} : aucune erreur}
+  \label{fig:w3c-css}
+\end{figure}
+
 % =========================================================
 \section{Difficultés rencontrées et solutions}
 
