@@ -27,6 +27,9 @@
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage[hidelinks]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage{fontawesome5}   % icônes GitHub et globe
 
 % ---------- Couleurs de la charte graphique ----------
 \definecolor{encre}{HTML}{1A1A1A}
@@ -100,6 +103,23 @@
     \IfFileExists{#3}{\lstinputlisting[#1]{#3}}{%
       \textit{Fichier \texttt{#2} introuvable : ajoutez-le dans le dossier
       \texttt{code/} du projet.}}}}
+
+% ---------- Liens du projet (couleurs de la charte) ----------
+% Petite étiquette en majuscules, comme les rubriques du site
+\newcommand{\etiquette}[1]{{\footnotesize\bfseries\color{terracotta}\MakeUppercase{#1}}}
+% Bouton terracotta, comme le bouton « S'abonner » du site
+\newcommand{\bouton}[2]{%
+  \tcbox[on line, colback=terracotta, colframe=terracotta, coltext=white,
+    arc=0.6mm, boxrule=0pt, left=3mm, right=3mm, top=1.2mm, bottom=1.2mm]%
+  {\href{#1}{\textbf{#2}}}}
+% Carte d'un dépôt GitHub : étiquette, auteur, compte, nom du dépôt
+\newcommand{\depot}[4]{%
+  \begin{minipage}[t]{0.47\linewidth}
+    \etiquette{\faGithub\ #1}\\[1mm]
+    {\color{encre}\bfseries #2}\\[0.5mm]
+    \href{https://github.com/#3/#4}{\footnotesize\color{gris}\ttfamily
+      github.com/#3/\\#4}
+  \end{minipage}}
 
 % Raccourci pour les noms de code dans le texte
 \newcommand{\code}[1]{\texttt{#1}}
@@ -675,8 +695,32 @@ une seule colonne.
     aucun lien n'est vide.
 \end{itemize}
 
-\noindent\textbf{Code source :}\\
-\url{https://github.com/ranimboussama76-eng/mini-magazine-mosaique}
+\subsection{Liens du projet}
+
+\begin{tcolorbox}[
+    enhanced,
+    colback=papier,
+    colframe=bordure,
+    boxrule=0.6pt,
+    arc=1mm,
+    borderline west={3pt}{0pt}{terracotta},  % filet terracotta, comme les citations du site
+    left=6mm, right=6mm, top=5mm, bottom=5mm
+]
+  % --- Site déployé ---
+  \etiquette{\faGlobe\ Site web déployé}\\[1mm]
+  {\Large\bfseries\color{encre} Mosaïque est en ligne}\\[1mm]
+  {\color{gris} Le magazine est consultable depuis un ordinateur, une
+  tablette ou un téléphone.}\\[3mm]
+  \bouton{https://mini-magazine-mosaique.vercel.app/}{Accéder au site $\rightarrow$}%
+  \hspace{3mm}{\small\color{gris}\url{https://mini-magazine-mosaique.vercel.app/}}
+
+  \vspace{3mm}
+  \noindent{\color{bordure}\rule{\linewidth}{0.6pt}}\\[3mm]
+  % --- Dépôts GitHub ---
+  \depot{Dépôt GitHub 1}{Ranim Boussama}{ranimboussama76-eng}{mini-magazine-mosaique}%
+  \hfill
+  \depot{Dépôt GitHub 2}{Yasmine Mtawaa}{yasmine-mtawaa}{mini-magazine-mosaique}
+\end{tcolorbox}
 
 \subsection{Validation W3C}
 
