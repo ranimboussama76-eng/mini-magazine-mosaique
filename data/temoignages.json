@@ -1,0 +1,27 @@
+[
+  {
+    "nom": "Amira K.",
+    "role": "Étudiante en informatique",
+    "texte": "Les articles vont droit au but. J'ai enfin compris CSS Grid grâce à Mosaïque !"
+  },
+  {
+    "nom": "Youssef B.",
+    "role": "Lycéen passionné de jeux vidéo",
+    "texte": "La rubrique Jeux vidéo me fait découvrir des jeux indépendants que je n'aurais jamais trouvés seul."
+  },
+  {
+    "nom": "Salma T.",
+    "role": "Enseignante",
+    "texte": "Je partage l'article sur le phishing avec mes élèves : clair, concret et sans jargon."
+  },
+  {
+    "nom": "Mehdi R.",
+    "role": "Développeur web",
+    "texte": "Un magazine simple, rapide et agréable à lire sur téléphone. Exactement ce qu'il fallait."
+  },
+  {
+    "nom": "Ines G.",
+    "role": "Étudiante en design",
+    "texte": "J'adore la mise en page façon presse écrite. On a envie de lire jusqu'au bout."
+  }
+]

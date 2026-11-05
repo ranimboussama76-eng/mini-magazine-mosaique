@@ -11,8 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
   <!-- Feuille de style du site -->
   <link rel="stylesheet" href="../css/style.css">
-  <!-- Script du site (semaine 2) : defer = exécuté après la lecture du HTML -->
-  <script src="../js/main.js" defer></script>
+  <!-- Script du site (semaine 2) : module JavaScript, exécuté après la lecture du HTML -->
+  <script type="module" src="../js/main.js"></script>
 </head>
 <body>
   <a href="#contenu" class="skip-link">Aller au contenu</a>
@@ -105,6 +105,33 @@
         <a href="../index.html" class="back-link">Retour à l'accueil</a>
       </div>
     </article>
+
+    <!-- Réactions des lecteurs : « J'aime » et commentaires (js/reactions.js).
+         Ils sont sauvegardés dans le navigateur avec localStorage. -->
+    <section class="container reactions" aria-labelledby="titre-reactions" data-article="article-7">
+      <h2 class="reactions-title" id="titre-reactions">Vos réactions</h2>
+      <button type="button" class="like-btn" aria-pressed="false" data-likes="15">
+        <span class="like-icon" aria-hidden="true">♥</span>
+        <span class="like-label">J'aime</span>
+        <span class="like-count">15</span>
+      </button>
+
+      <h3 class="comments-title">Commentaires (<span class="comment-count">0</span>)</h3>
+      <p class="comment-empty">Aucun commentaire pour l'instant. Donnez votre avis !</p>
+      <ol class="comment-list"></ol>
+
+      <form class="comment-form" method="post">
+        <div class="form-field">
+          <label for="commentaire-nom">Votre nom</label>
+          <input type="text" id="commentaire-nom" name="nom" class="input" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="commentaire-texte">Votre commentaire</label>
+          <textarea id="commentaire-texte" name="commentaire" class="input" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn">Publier le commentaire</button>
+      </form>
+    </section>
 
     <!-- Articles liés -->
     <section class="container related" aria-labelledby="titre-lies">

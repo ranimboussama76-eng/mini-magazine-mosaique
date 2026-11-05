@@ -11,8 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
   <!-- Feuille de style du site -->
   <link rel="stylesheet" href="css/style.css">
-  <!-- Script du site (semaine 2) : defer = exécuté après la lecture du HTML -->
-  <script src="js/main.js" defer></script>
+  <!-- Script du site (semaine 2) : module JavaScript, exécuté après la lecture du HTML -->
+  <script type="module" src="js/main.js"></script>
 </head>
 <body>
   <a href="#contenu" class="skip-link">Aller au contenu</a>
@@ -61,18 +61,59 @@
   <main id="contenu">
     <h1 class="visually-hidden">Mosaïque, le magazine tech et numérique</h1>
 
-    <!-- Article à la une -->
-    <section class="container hero" aria-labelledby="titre-une">
-      <a href="pages/article-1.html" class="hero-media">
-        <img src="images/article-1.png" alt="Smartphone qui photographie un écran affichant un visage généré par l'IA" width="800" height="500">
-      </a>
-      <div class="hero-text">
-        <p class="hero-label">À la une</p>
-        <span class="tag tag-ia">IA</span>
-        <h2 class="hero-title" id="titre-une"><a href="pages/article-1.html">L'IA en 2026 : ce qui a vraiment changé dans notre quotidien</a></h2>
-        <p class="hero-lead">Traduction instantanée, photos retouchées, devoirs relus : l'intelligence artificielle s'est installée partout, souvent sans qu'on s'en rende compte.</p>
-        <p class="hero-meta">Par Ranim Boussama, le 21 octobre 2026, 8 min de lecture</p>
-        <a href="pages/article-1.html" class="btn">Lire l'article</a>
+    <!-- Articles à la une : carrousel d'images (js/carrousel.js).
+         Sans JavaScript, les trois articles s'affichent l'un sous l'autre. -->
+    <section class="container carousel" aria-roledescription="carrousel" aria-labelledby="titre-une">
+      <h2 class="visually-hidden" id="titre-une">À la une</h2>
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+          <div class="carousel-slide hero" role="group" aria-roledescription="diapositive" aria-label="1 sur 3">
+            <a href="pages/article-1.html" class="hero-media">
+              <img src="images/article-1.png" alt="Smartphone qui photographie un écran affichant un visage généré par l'IA" width="800" height="500">
+            </a>
+            <div class="hero-text">
+              <p class="hero-label">À la une</p>
+              <span class="tag tag-ia">IA</span>
+              <h3 class="hero-title"><a href="pages/article-1.html">L'IA en 2026 : ce qui a vraiment changé dans notre quotidien</a></h3>
+              <p class="hero-lead">Traduction instantanée, photos retouchées, devoirs relus : l'intelligence artificielle s'est installée partout, souvent sans qu'on s'en rende compte.</p>
+              <p class="hero-meta">Par Ranim Boussama, le 21 octobre 2026, 8 min de lecture</p>
+              <a href="pages/article-1.html" class="btn">Lire l'article</a>
+            </div>
+          </div>
+          <div class="carousel-slide hero" role="group" aria-roledescription="diapositive" aria-label="2 sur 3">
+            <a href="pages/article-5.html" class="hero-media">
+              <img src="images/article-5.png" alt="Cadenas rouge posé sur un clavier d'ordinateur" width="800" height="500" loading="lazy">
+            </a>
+            <div class="hero-text">
+              <p class="hero-label">À la une</p>
+              <span class="tag tag-cyber">Cybersécurité</span>
+              <h3 class="hero-title"><a href="pages/article-5.html">Cinq réflexes pour protéger ses comptes en ligne</a></h3>
+              <p class="hero-lead">Mots de passe, double authentification, mises à jour : les bases que tout le monde devrait appliquer.</p>
+              <p class="hero-meta">Par Yasmine Mtawaa, le 12 octobre 2026, 4 min de lecture</p>
+              <a href="pages/article-5.html" class="btn">Lire l'article</a>
+            </div>
+          </div>
+          <div class="carousel-slide hero" role="group" aria-roledescription="diapositive" aria-label="3 sur 3">
+            <a href="pages/article-8.html" class="hero-media">
+              <img src="images/article-8.png" alt="Personne portant une montre connectée au poignet" width="800" height="500" loading="lazy">
+            </a>
+            <div class="hero-text">
+              <p class="hero-label">À la une</p>
+              <span class="tag tag-gadgets">Gadgets</span>
+              <h3 class="hero-title"><a href="pages/article-8.html">Montres connectées : vraiment utiles au quotidien ?</a></h3>
+              <p class="hero-lead">Suivi du sommeil, notifications, sport : on a porté une montre connectée pendant un mois.</p>
+              <p class="hero-meta">Par Ranim Boussama, le 6 octobre 2026, 6 min de lecture</p>
+              <a href="pages/article-8.html" class="btn">Lire l'article</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Commandes du carrousel (cachées sans JavaScript) -->
+      <div class="carousel-controls">
+        <button type="button" class="carousel-btn carousel-prev" aria-label="Article précédent">←</button>
+        <div class="carousel-dots"></div>
+        <button type="button" class="carousel-btn carousel-next" aria-label="Article suivant">→</button>
+        <p class="visually-hidden carousel-status" aria-live="polite"></p>
       </div>
     </section>
 
@@ -221,7 +262,28 @@
       </div>
     </section>
 
-    <!-- Newsletter (validation JavaScript : js/main.js) -->
+    <!-- Témoignages des lecteurs : défilement automatique (js/temoignages.js).
+         Les témoignages sont lus avec fetch dans data/temoignages.json ;
+         le premier est écrit ici pour s'afficher même sans JavaScript. -->
+    <section class="testimonials" aria-labelledby="titre-temoignages" data-source="data/temoignages.json">
+      <div class="container">
+        <h2 class="section-title" id="titre-temoignages">Ce qu'en disent nos lecteurs</h2>
+        <div class="testimonial-stage">
+          <figure class="testimonial is-active">
+            <blockquote>
+              <p>« Les articles vont droit au but. J'ai enfin compris CSS Grid grâce à Mosaïque ! »</p>
+            </blockquote>
+            <figcaption><span class="testimonial-name">Amira K.</span>, étudiante en informatique</figcaption>
+          </figure>
+        </div>
+        <div class="testimonial-controls">
+          <div class="testimonial-dots"></div>
+          <button type="button" class="testimonial-pause">Pause</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter (validation JavaScript : js/formulaires.js) -->
     <section class="container newsletter-section" aria-labelledby="titre-newsletter">
       <div class="newsletter">
         <div>
