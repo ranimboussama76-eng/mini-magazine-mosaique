@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
   <!-- Feuille de style du site -->
   <link rel="stylesheet" href="css/style.css">
+  <!-- Script du site (semaine 2) : defer = exécuté après la lecture du HTML -->
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <a href="#contenu" class="skip-link">Aller au contenu</a>
@@ -89,7 +91,7 @@
 
     <!-- Grille des 9 derniers articles -->
     <section class="container articles" id="articles" aria-labelledby="titre-articles">
-      <h2 class="section-title" id="titre-articles">Derniers articles</h2>
+      <h2 class="section-title" id="titre-articles" aria-live="polite">Derniers articles</h2>
       <div class="grid">
         <article class="card">
           <a href="pages/article-2.html" class="card-link">
@@ -219,7 +221,7 @@
       </div>
     </section>
 
-    <!-- Newsletter (le formulaire sera validé en JavaScript en semaine 2) -->
+    <!-- Newsletter (validation JavaScript : js/main.js) -->
     <section class="container newsletter-section" aria-labelledby="titre-newsletter">
       <div class="newsletter">
         <div>
