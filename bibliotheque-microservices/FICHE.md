@@ -148,7 +148,12 @@ Pour **chaque** microservice :
 6. Lancer et tester.
 
 ### Ordre de démarrage (important)
-1. `docker compose up -d` (RabbitMQ)
+1. **RabbitMQ** doit tourner sur `localhost:5672` (guest / guest). Deux possibilités :
+   - **Sans Docker (RabbitMQ installé avec Erlang)** : ouvrir *RabbitMQ Command Prompt (sbin dir)* puis lancer
+     `rabbitmq-service start` (ou `rabbitmq-server` pour le voir tourner dans la fenêtre).
+     Interface web : une seule fois, `rabbitmq-plugins enable rabbitmq_management`, puis http://localhost:15672.
+     Vérifier : `rabbitmqctl status`.
+   - Avec Docker : `docker compose up -d`.
 2. **discovery-server**, puis attendre qu'il soit prêt
 3. auth-service, catalogue-service, emprunt-service, notification-service
 4. **api-gateway** en dernier

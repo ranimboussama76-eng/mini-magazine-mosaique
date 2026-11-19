@@ -16,11 +16,16 @@ Spring Boot 3.3.2 · Spring Cloud 2023.0.3 · Java 21
 
 ## Lancer
 
+1. Démarrer **RabbitMQ** sur `localhost:5672` (guest / guest).
+   - Sans Docker (installé avec Erlang), dans *RabbitMQ Command Prompt (sbin dir)* :
+
 ```bash
-docker compose up -d
+rabbitmq-service start
 ```
 
-Ensuite, dans IntelliJ, lancez dans l'ordre : `discovery-server` → les 4 services → `api-gateway`.
+   - Ou avec Docker : `docker compose up -d`
+
+2. Ensuite, dans IntelliJ, lancez dans l'ordre : `discovery-server` → les 4 services → `api-gateway`.
 
 Ou en ligne de commande :
 
