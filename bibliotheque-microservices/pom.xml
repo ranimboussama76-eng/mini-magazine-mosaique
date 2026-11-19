@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Pom "parent" optionnel : permet d'ouvrir tous les microservices d'un coup dans IntelliJ
+     et de tout compiler avec "mvn clean package". Chaque microservice reste un projet independant. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>tn.tp.dev</groupId>
+    <artifactId>bibliotheque-microservices</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>discovery-server</module>
+        <module>api-gateway</module>
+        <module>auth-service</module>
+        <module>catalogue-service</module>
+        <module>emprunt-service</module>
+        <module>notification-service</module>
+    </modules>
+</project>

@@ -1,0 +1,13 @@
+description: Emprunter un livre disponible diminue le stock et renvoie 200
+request:
+  method: PUT
+  url: /livres/1/emprunter
+response:
+  status: 200
+  headers:
+    Content-Type: application/json
+  body:
+    id: "1"
+    titre: "Clean Code"
+    auteur: "Robert C. Martin"
+    quantite: 2

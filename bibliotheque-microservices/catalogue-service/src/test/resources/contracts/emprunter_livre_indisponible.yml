@@ -1,0 +1,6 @@
+description: Emprunter un livre dont le stock est 0 renvoie 409
+request:
+  method: PUT
+  url: /livres/3/emprunter
+response:
+  status: 409

@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: auth-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+# Meme cle secrete que dans api-gateway (au moins 32 caracteres)
+jwt:
+  secret: ma-cle-secrete-tp-bibliotheque-ing-a2-gl-2026
